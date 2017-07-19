@@ -7,17 +7,29 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function pigLatin(word) {
-
-  // Your code here
-
+function pigLatin (word) {
+  word = word.toLowerCase().trim();
+  var vowel = ['a', 'e', 'i', 'o', 'u'];
+  var result = [];
+  for (var i = 0; i < vowel.length; i++) {
+    if (word.indexOf(vowel[i]) > -1) {
+      result.push(word.indexOf(vowel[i]));
+    }
+  }
+  result.sort();
+  var vowelIndex = result[0];
+  var firstPart = word.slice(vowelIndex, word.length);
+  var secondPart = word.slice(0, vowelIndex);
+  if (vowelIndex === 0) {
+    return word + 'yay';
+  } else {
+    return firstPart + secondPart + 'ay';
+  }
 }
 
-
-function getPrompt() {
+function getPrompt () {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log(pigLatin(answer));
     getPrompt();
   });
 }
@@ -25,7 +37,6 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-
   describe('#pigLatin()', () => {
     it('should translate a simple word', () => {
       assert.equal(pigLatin('car'), 'arcay');
