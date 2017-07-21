@@ -14,7 +14,7 @@ let board = [
 
 let playerTurn = 'X';
 
-function printBoard() {
+function printBoard () {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
   console.log('  ---------');
@@ -23,27 +23,46 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
-function horizontalWin() {
+function horizontalWin () {
   // Your code here
+  return (
+  (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) ||
+  (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) ||
+  (board[2][0] === playerTurn && board[2][1] === playerTurn && board[2][2] === playerTurn)
+  );
 }
 
-function verticalWin() {
+function verticalWin () {
   // Your code here
+  return (
+  (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) ||
+  (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][2] === playerTurn && board[2][2] === playerTurn)
+  );
 }
 
-function diagonalWin() {
+function diagonalWin () {
   // Your code here
+  return (
+  (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn) ||
+  (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn)
+  );
 }
 
-function checkForWin() {
+function checkForWin () {
   // Your code here
+  if (verticalWin() === true || horizontalWin() === true || diagonalWin() === true) {
+    return true;
+  }
 }
 
-function ticTacToe(row, column) {
+function ticTacToe (row, column) {
   // Your code here
+  board[row][column] = playerTurn;
+  playerTurn = (playerTurn === 'X') ? 'O' : 'X';   // else if statement
 }
 
-function getPrompt() {
+function getPrompt () {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
@@ -52,11 +71,7 @@ function getPrompt() {
       getPrompt();
     });
   });
-
 }
-
-
-
 // Tests
 
 if (typeof describe === 'function') {
