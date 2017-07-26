@@ -27,10 +27,10 @@ function movePiece (startStack, endStack) {
 function isLegal (startStack, endStack) {
   // Your code here
   var startIndex = stacks[startStack].length - 1;
-  var piecetomove = stacks[startStack][startIndex];
+  var pieceToMove = stacks[startStack][startIndex];
   var endIndex = stacks[endStack].length - 1;
-  var movelocation = stacks[endStack][endIndex];
-  if (!movelocation || piecetomove < movelocation) {
+  var moveLocation = stacks[endStack][endIndex];
+  if (!moveLocation || pieceToMove < moveLocation) {
     return true;
   } else {
     return false;
