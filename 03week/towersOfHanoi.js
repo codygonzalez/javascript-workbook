@@ -13,33 +13,48 @@ let stacks = {
   c: []
 };
 
-function printStacks() {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
+function printStacks () {
+  console.log('a: ' + stacks.a);
+  console.log('b: ' + stacks.b);
+  console.log('c: ' + stacks.c);
 }
 
-function movePiece() {
+function movePiece (startStack, endStack) {
   // Your code here
-
+  stacks[endStack].push(stacks[startStack].pop());
 }
 
-function isLegal() {
+function isLegal (startStack, endStack) {
   // Your code here
-
+  var startIndex = stacks[startStack].length - 1;
+  var piecetomove = stacks[startStack][startIndex];
+  var endIndex = stacks[endStack].length - 1;
+  var movelocation = stacks[endStack][endIndex];
+  if (!movelocation || piecetomove < movelocation) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function checkForWin() {
+function checkForWin () {
   // Your code here
-
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function towersOfHanoi(startStack, endStack) {
+function towersOfHanoi (startStack, endStack) {
   // Your code here
-
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin();
+  }
 }
 
-function getPrompt() {
+function getPrompt () {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
@@ -52,7 +67,6 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
