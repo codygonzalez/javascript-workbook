@@ -10,6 +10,48 @@ let jobTypes = {
 };
 
 // Your code here
+class CrewMember {
+  constructor (name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.enterShip = function (theShip) {
+      this.ship = theShip;
+      this.ship.crew.push(this);
+    };
+  }
+}
+
+class Ship {
+  constructor (name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+    this.missionStatement = function () {
+      if (this.crew < 1) {
+        return "Can't perform a mission yet.";
+      } else {
+        return ability;
+      }
+    };
+  }
+}
+// make mission statement a method inside of ship class
+// class missionStatement {
+//   constructor (CrewMember, ship) {
+//     let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+//     let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+//     let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+//     let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+//     crewMember1.ship = mav;
+//     crewMember2.ship = hermes;
+//     mav.missionStatement = "Can't perform a mission yet.";
+//     hermes.missionStatement = "Can't perform a mission yet.";
+//     crewMember1.mav.missionStatement = 'Ascend into low orbit';
+//     crewMember2.hermes.missionStatement = 'Interplanetary Space Travel';
+//   }
+// }
 
 //tests
 if (typeof describe === 'function'){
