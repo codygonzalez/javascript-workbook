@@ -4,16 +4,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // Your code here
   let moved = {};
 
-  document.querySelectorAll('[data-block]').forEach((block) => {
+  document.querySelectorAll('.block').forEach((block) => {
     block.addEventListener('click', (e) => {
-      e.stopPropagation();
-      moved = { size: e.target.attributes[0].value };
+      // e.stopPropagation();
+      moved = { target: e.target, size: e.target.clientHeight, parent: e.target.parentNode };
       e.target.parentNode.removeChild(e.target);
-      console.log(moved.size);
     });
   });
-  document.querySelector('[data-stack]').addEventListener('click', (e) => {
+  document.querySelector('.container1').addEventListener('click', (e) => {
+    e.target.appendChild(moved.target);
     if (!e.target.children.length) {
+      e.target.appendChild(moved.target);
+    } else {
+      moved.parent.appendChild(moved.target);
+    }
+  });
+  document.querySelector('.container2').addEventListener('click', (e) => {
+    let last = e.target.children[e.target.children.length - 1];
+    let size = last && last.clientHeight;
+    if (!last || size > moved.target) {
+      e.target.appendChild(moved.target);
+    } else {
+      moved.parent.appendChild(moved.target);
+    }
+  });
+  document.querySelector('.container3').addEventListener('click', (e) => {
+    let last = e.target.children[e.target.children.length - 1];
+    let size = last && last.clientHeight;
+    if (!last || size > moved.target) {
       e.target.appendChild(moved.target);
     } else {
       moved.parent.appendChild(moved.target);
