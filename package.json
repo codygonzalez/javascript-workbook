@@ -30,5 +30,6 @@
   "dependencies": {
     "functional-javascript-workshop": "^1.0.6",
     "javascripting": "^2.6.1"
-  }
+  },
+  "main": "index.js"
 }

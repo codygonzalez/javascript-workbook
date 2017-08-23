@@ -1,26 +1,42 @@
-.container {
-  border: 1px solid green;
-  background-color: red;
-  width: 300px;
-  height: 600px;
-  flex-wrap: wrap;
-}
-.guessRow, .hintRow {
-  width: 200px;
-}
-#dot {
-  border: 10px solid black;
-  border-radius: 15%;
-  background-color: blue;
-  height:50px;
-  width: 50px;
+body {
+  background-color: black;
   color: white;
 }
-#hint_dot {
-  border: 10px solid white;
-  border-radius: 15%;
-  background-color: green;
-  height:50px;
-  width: 50px;
-  justify-content: center;
+h1, h4 {
+  color: green;
+}
+h1 {
+  font-style: italic;
+  font-size: 40px;
+  letter-spacing: 12px;
+}
+h4 {
+  letter-spacing: 3px;
+}
+h3 {
+  color: purple;
+}
+p, li {
+  color: lightgreen;
+}
+.code {
+    font-size: 30px;
+    color: red;
+    margin-top: 10px;
+}
+#game {
+  margin-top: 20px;
+}
+#user-guess, .submit-guess {
+  color: black;
+}
+#user-guess {
+  background-color: yellow;
+}
+#message {
+  font-size: 18px;
+  color: white;
+}
+#results {
+  color: lightblue;
 }
