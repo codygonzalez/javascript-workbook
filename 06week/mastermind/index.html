@@ -11,6 +11,7 @@
     <input type="hidden" id="answer"/>
     <div class="container">
       <div class="col-md-6">
+        <!-- Titles and rules -->
         <h1>Mastermind <h4>aka Code Breaker</h4></h1>
         <h3>WTF is Mastermind?</h3>
         <p>A game to summon the Mastermind in you and guess the four digit code.</p>
@@ -24,6 +25,7 @@
           <li>The "<span style="color: red;">$$$$</span>" has the code hidden and will reveal itself once either you crack the code or fail trying.</li>
         </ul>
       </div>
+      <!-- Result symbol legend to show player how to read results -->
       <div class="col-md-6" id="game">
         <h3>Result Symbol Legend</h3>
         <ul style="list-style: none;" class='legend'>
@@ -34,6 +36,7 @@
         <div class="row">
           <label id="code" class="code col-md-6">$$$$</label>
         </div>
+        <!-- Guess submit area -->
         <div id="guessBox" class="row">
           <input id="user-guess"/>
           <input id="submit-guess" class="btn submit-guess" type="button" value="Submit Guess"/>
@@ -41,6 +44,7 @@
         <div class="row">
           <label id="message"></label>
         </div>
+        <!-- Shows player guess attempt evaluation -->
         <div class="row" id="results">
           <div class="row"><strong class="col-md-6">Guess</strong><strong class="col-md-6">Result</strong></div>
         </div>

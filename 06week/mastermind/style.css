@@ -24,19 +24,23 @@ p, li {
     color: red;
     margin-top: 10px;
 }
+/*game board*/
 #game {
   margin-top: 20px;
 }
+/*font for fill box and button*/
 #user-guess, .submit-guess {
   color: black;
 }
 #user-guess {
   background-color: yellow;
 }
+/*font for message displayed after submitting a guess*/
 #message {
   font-size: 18px;
   color: white;
 }
+/*font for hidden code*/
 #results {
   color: lightblue;
 }

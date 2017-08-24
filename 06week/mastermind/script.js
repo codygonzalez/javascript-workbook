@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let input = document.getElementById('user-guess').value;
     let message = document.getElementById('message');
     let results = document.getElementById('results');
-
+// Message displayed if wrong guess/win/loss
     message.innerHTML = '';
-
+// random code generator
     if (answer === '') {
       answer = Math.floor(Math.random() * 10000).toString();
       while (answer.length < 4) {
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       document.getElementById('answer').value = answer;
     }
+    // user attempt
     if (attempt === '') {
       attempt = 0;
     }
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       attempt++;
       document.getElementById('attempt').value = attempt;
     }
-
+// Guess and Result rows to show where user stands with attempted guesses
     let correct = 0;
     let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
     for (let i = 0; i < input.length; i++) {
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     html += '</div></div>';
-
+// messages generated if win or loss
     results.innerHTML += html;
 
     if (correct === input.length) {
