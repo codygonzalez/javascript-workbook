@@ -1,0 +1,35 @@
+body {
+  background-color: yellow;
+  background-image: url('https://i.ytimg.com/vi/WkYc0QM8v68/maxresdefault.jpg');
+}
+/*Pokemon logo*/
+h1 {
+  margin-left: 250px;
+  width: 700px;
+  height: 275px;
+  background-size: cover;
+  background-image: url('http://pixelartmaker.com/art/d98dde45d242734.png');
+}
+/*table containing names/pokedex/weight/height*/
+#table {
+  background-color:rgba(0, 0, 0, 0.7);
+  width: 300px;
+  height: 100%;
+  color: yellow ;
+  font-weight: bolder;
+  font-size: 14px;
+  margin-left: 460px;
+  text-align: center;
+  padding: 10px;
+}
+th, tr {
+  text-align: center;
+}
+/*removal of bullet points from li's*/
+li {
+  list-style-type: none
+}
+/*fonts changes to red when hovering over values*/
+li:hover {
+  color: red;
+}
