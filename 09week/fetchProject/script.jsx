@@ -15,7 +15,7 @@ class Fetch extends React.Component {
 
   componentWillMount () {
     for (let i = 1; i < 26; i++) {
-      fetch(`http://pokeapi.co/api/v2/pokemon/${i}/`).then((response) => {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`).then((response) => {
         response.json().then((data) => {
           this.setState({
             list: this.state.list.concat([data])
